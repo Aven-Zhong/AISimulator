@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stParam strOrg="" strPlugName="Aircraft_650_1_VS19.dll" strTypeName="TX" nTypeID="1" nFactionID="1" strCountry="">
+ <sub_tp 类别="战斗机" 机翼="固定翼"/>
+ <stModelInfo>
+  <strSimpleName></strSimpleName>
+  <dRCS>0</dRCS>
+  <dIRI>500000</dIRI>
+  <Size dHeight="0" dLength="0" dWidth="0"/>
+  <str3DModel>J20.FBX</str3DModel>
+  <str2DLabel>AIRCRAFT_FQJ.png</str2DLabel>
+  <ModelNode X="0" Visible="0" sNodeName="平台仓库" Y="0" Z="0"/>
+  <ModelNode X="0" Visible="0" sNodeName="设备仓库" Y="0" Z="0"/>
+ </stModelInfo>
+ <插件参数/>
+ <vecLoadPlat/>
+ <vecLoadPart>
+  <LoadPart strTypeName="光电吊舱" nTypeID="67108864" nFactionID="4" sNodeName="设备仓库"/>
+  <LoadPart strTypeName="导弹发射器" nTypeID="131072" nFactionID="4" sNodeName="设备仓库"/>
+ </vecLoadPart>
+</stParam>

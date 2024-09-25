@@ -1,0 +1,801 @@
+<?xml version="1.0"?>
+<!--
+#
+# Avoid putting Nasal scripts into this file as people then copy them and put them in their joystick.
+#  And when we change it, they forget to change their joystick, and their aircraft will not work as it should.
+#
+# #setlistener("devices/status/keyboard/event", func(n) debug.dump(n.getValues()));
+# uncomment that to see input in console
+-->
+<PropertyList>
+	<mice n="0">
+		<mouse n="0">
+			<mode n="0">
+				<button n="3">
+					<binding n="0">
+						<script></script>
+					</binding>
+					<binding n="1">
+						<condition>
+							<and>
+								<property>/devices/status/mice/mouse[0]/button[2]</property>
+								<not><property>/sim/mouse/right-button-mode-cycle-enabled</property></not>
+							</and>
+						</condition>
+						<command>nasal</command>
+						<script>f16.fovZoom(-1);</script>
+					</binding>
+				</button>
+				<button n="4">
+					<binding n="0">
+						<script></script>
+					</binding>
+					<binding n="1">
+						<condition>
+							<and>
+								<property>/devices/status/mice/mouse[0]/button[2]</property>
+								<not><property>/sim/mouse/right-button-mode-cycle-enabled</property></not>
+							</and>
+						</condition>
+						<command>nasal</command>
+						<script>f16.fovZoom(1);</script>
+					</binding>
+				</button>
+			</mode>
+		</mouse>
+    </mice>
+    <keyboard n="0">
+        <key n="356">
+            <name>Left</name>
+            <repeatable type="bool">false</repeatable>
+            <desc>slew</desc>
+            <binding>
+                <command>property-assign</command>
+                <property>controls/displays/cursor-slew-x</property>
+                <value type="int">-1</value>
+            </binding>
+            <mod-shift>
+                <binding>
+                    <command>property-assign</command>
+                    <property>controls/displays/display-management-switch-x</property>
+                    <value type="int">-1</value>
+                </binding>
+                <mod-up>
+                    <binding>
+                        <command>property-assign</command>
+                        <property>controls/displays/display-management-switch-x</property>
+                        <value type="int">0</value>
+                    </binding>
+                </mod-up>
+            </mod-shift>
+            <mod-alt>
+           <desc>Look left</desc>
+               <binding>
+                <command>property-assign</command>
+                <property>/sim/current-view/goal-heading-offset-deg</property>
+                <property>/sim/view/config/left-direction-deg</property>
+               </binding>
+            </mod-alt>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>controls/displays/cursor-slew-x</property>
+                    <value type="int">0</value>
+                </binding>
+            </mod-up>
+        </key>
+
+        <key n="358">
+            <name>Right</name>
+            <repeatable type="bool">false</repeatable>
+            <desc>slew</desc>
+            <binding>
+                <command>property-assign</command>
+                <property>controls/displays/cursor-slew-x</property>
+                <value type="int">1</value>
+            </binding>
+            <mod-shift>
+                <binding>
+                    <command>property-assign</command>
+                    <property>controls/displays/display-management-switch-x</property>
+                    <value type="int">1</value>
+                </binding>
+                <mod-up>
+                    <binding>
+                        <command>property-assign</command>
+                        <property>controls/displays/display-management-switch-x</property>
+                        <value type="int">0</value>
+                    </binding>
+                </mod-up>
+            </mod-shift>
+            <mod-alt>
+               <desc>Look right</desc>
+               <binding>
+                <command>property-assign</command>
+                <property>/sim/current-view/goal-heading-offset-deg</property>
+                <property>/sim/view/config/right-direction-deg</property>
+               </binding>
+            </mod-alt>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>controls/displays/cursor-slew-x</property>
+                    <value type="int">0</value>
+                </binding>
+            </mod-up>
+        </key>
+
+        <key n="357">
+            <name>Up</name>
+            <repeatable type="bool">true</repeatable>
+            <desc>slew</desc>
+            <binding>
+                <command>property-assign</command>
+                <property>controls/displays/cursor-slew-y</property>
+                <value type="int">-1</value>
+            </binding>
+            <mod-shift>
+                <binding>
+                    <command>property-assign</command>
+                    <property>controls/displays/display-management-switch-y</property>
+                    <value type="int">-1</value>
+                </binding>
+                <mod-up>
+                    <binding>
+                        <command>property-assign</command>
+                        <property>controls/displays/display-management-switch-y</property>
+                        <value type="int">0</value>
+                    </binding>
+                </mod-up>
+            </mod-shift>
+            <mod-alt>
+               <desc>Look forward</desc>
+               <binding>
+                <command>property-assign</command>
+                <property>/sim/current-view/goal-heading-offset-deg</property>
+                <property>/sim/view/config/front-direction-deg</property>
+               </binding>
+            </mod-alt>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>controls/displays/cursor-slew-y</property>
+                    <value type="int">0</value>
+                </binding>
+            </mod-up>
+        </key>
+
+        <key n="359">
+            <name>Down</name>
+            <repeatable type="bool">true</repeatable>
+            <desc>slew</desc>
+            <binding>
+                <command>property-assign</command>
+                <property>controls/displays/cursor-slew-y</property>
+                <value type="int">1</value>
+            </binding>
+            <mod-shift>
+                <binding>
+                    <command>property-assign</command>
+                    <property>controls/displays/display-management-switch-y</property>
+                    <value type="int">1</value>
+                </binding>
+                <mod-up>
+                    <binding>
+                        <command>property-assign</command>
+                        <property>controls/displays/display-management-switch-y</property>
+                        <value type="int">0</value>
+                    </binding>
+                </mod-up>
+            </mod-shift>
+            <mod-alt>
+               <desc>Look backwards</desc>
+               <binding>
+                <command>property-assign</command>
+                <property>/sim/current-view/goal-heading-offset-deg</property>
+                <property>/sim/view/config/back-direction-deg</property>
+               </binding>
+            </mod-alt>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>controls/displays/cursor-slew-y</property>
+                    <value type="int">0</value>
+                </binding>
+            </mod-up>
+        </key>
+		<key n="24">
+			<name>Ctrl-x</name>
+			<desc>Reset zoom to default</desc>
+			<binding>
+				<command>nasal</command>
+				<script>f16.fovZoom(0);</script>
+			</binding>
+		</key>
+		<key n="88">
+			<name>X</name>
+			<desc>Increase field of view</desc>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>f16.fovZoom(1);</script>
+			</binding>
+		</key>
+		<key n="120">
+			<name>x</name>
+			<desc>Decrease field of view</desc>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>f16.fovZoom(-1);</script>
+			</binding>
+		</key>
+        <key n="108">
+            <name>l</name>
+            <desc>cursor designate</desc>
+            <binding>
+                <command>property-assign</command>
+                <property>controls/displays/cursor-click</property>
+                <value type="bool">true</value>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>controls/displays/cursor-click</property>
+                    <value type="bool">false</value>
+                </binding>
+            </mod-up>
+        </key>
+        <key n="81">
+            <name>Q</name>
+            <desc>Reset view</desc>
+            <binding>
+                <command>nasal</command>
+                <script>f16.resetView();</script>
+            </binding>
+        </key>
+        <key n="80">
+            <name>P</name>
+            <desc>NOP panel here</desc>
+            <binding>
+                <command>nasal</command>
+                <script>#Prevents 2D panel from activating</script>
+            </binding>
+        </key>
+        <key n="17">
+            <name>CTRL-Q</name>
+            <desc>View head-down-displays</desc>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>f16.HDDView();</script>
+            </binding>
+        </key>
+        <key n="19">
+            <name>CTRL-S</name>
+            <desc>Ignore trolls</desc>
+            <repeatable>false</repeatable>
+            <binding>
+                  <command>dialog-show</command>
+                  <dialog-name>ignore</dialog-name>
+            </binding>
+        </key>
+        
+        <key n="23">
+            <name>CTRL-W</name>
+            <desc>View HSI</desc>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>f16.HSIView();</script>
+            </binding>
+        </key>
+         <key n="21">
+          <name>Ctrl-U</name>
+          <desc>[Cheat] Add 1000ft of emergency altitude</desc>
+          <binding>
+                <command>nasal</command>
+                <script>
+                	controls_f16.emerg_alt();                    
+                </script>
+            </binding>
+         </key>
+         <key n="97">
+          <name>a</name>
+          <desc>Increase speed-up</desc>
+            <binding n="3">
+                <command>nasal</command>
+                <condition>
+                        <and>
+                            <not-equals>
+                                <property>sim/current-view/name</property>
+                                <value>Walk View</value>
+                            </not-equals>
+                            <not-equals>
+                                <property>sim/current-view/name</property>
+                                <value>Walker Orbit View</value>
+                            </not-equals>
+                        </and>
+                </condition>
+                <script>
+                	controls_f16.speed_up();                    
+                </script>
+            </binding>
+         </key>
+         <key n="100">
+          <name>d</name>
+          <desc>Dogfight mode</desc>
+            <binding n="3">
+                <command>nasal</command>
+                <script>
+                    controls_f16.dogfight();
+                </script>
+            </binding>
+         </key>
+          <key n="65">
+          <name>A</name>
+          <desc>Decrease speed-up</desc>
+            <binding n="3">
+                <command>nasal</command>
+                <condition>
+                    <and>
+                    <not-equals>
+                        <property>sim/current-view/name</property>
+                        <value>Walk View</value>
+                    </not-equals>
+                    <not-equals>
+                        <property>sim/current-view/name</property>
+                        <value>Walker Orbit View</value>
+                    </not-equals>
+                    </and>
+                </condition>
+                <script>
+                    controls_f16.speed_down();
+                </script>
+            </binding>
+         </key>
+         <key n="18">
+          <name>Ctrl-R</name>
+          <desc>Activate the instant replay system</desc>
+          <binding>
+                <command>nasal</command>
+                <script>
+                	controls_f16.replay();
+                </script>
+            </binding>
+            <mod-up>
+            </mod-up>
+         </key>
+         <key n="112">
+          <name>p</name>
+          <desc>Toggle the pause state of the sim</desc>
+          <binding>
+                <command>nasal</command>
+                <script>
+                    controls_f16.pause();
+                </script>
+          </binding>
+        </key>
+        <key n="87">
+            <name>SHIFT-W</name>
+            <desc>View RWR</desc>
+            <repeatable>false</repeatable>
+                <binding n="3">
+                    <condition>
+                            <and>
+                            <not-equals>
+                                <property>sim/current-view/name</property>
+                                <value>Walk View</value>
+                            </not-equals>
+                            <not-equals>
+                                <property>sim/current-view/name</property>
+                                <value>Walker Orbit View</value>
+                            </not-equals>
+                            </and>
+                     </condition>
+                    <command>nasal</command>
+                    <script>f16.RWRView();</script>
+                </binding>
+        </key>
+        <key n="113">
+            <name>q</name>
+            <desc>Trigger flare release</desc>
+            <binding>
+                <command>property-assign</command>
+                <property>/ai/submodels/submodel[0]/flare-release-cmd</property>
+                <value type="bool">true</value>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>/ai/submodels/submodel[0]/flare-release-cmd</property>
+                    <value type="bool">false</value>
+                </binding>
+            </mod-up>
+        </key>
+        <key n="8">
+            <name>Ctrl-H</name>
+            <desc>Toggle arrester hook</desc>
+            <binding>
+                <command>property-toggle</command>
+                <property>fdm/jsbsim/systems/hook/tailhook-cmd-norm</property>
+                <condition>
+                    <greater-than-equals>
+                        <property>fdm/jsbsim/elec/bus/batt-2</property>
+                        <value>20</value>
+                    </greater-than-equals>
+                </condition>
+            </binding>
+        </key>
+        <!--<key n="14">
+            <name>Ctrl-n</name>
+            <desc>Toggles Radar RWS / TWS AUTO Modes</desc>
+            <binding>
+                <command>nasal</command>
+                <script>radar.radar_mode_toggle()</script>
+            </binding>
+        </key>-->
+        <!--<key n="69">
+         <name>E</name>
+         <desc>Decrease Radar Range</desc>
+         <binding>
+          <command>nasal</command>
+          <script>radar.radar_range_control(-1);</script>
+         </binding>
+        </key>-->
+        <key n="67">
+            <name>C</name>
+            <desc>Toggle canopy</desc>
+            <binding>
+                <command>property-toggle</command>
+                <property>/fdm/jsbsim/fcs/canopy-engage</property>
+            </binding>
+        </key>
+        <!--<key n="82">
+         <name>R</name>
+         <desc>Increase Radar Range</desc>
+         <binding>
+          <command>nasal</command>
+          <script>radar.radar_range_control(1);</script>
+         </binding>
+        </key>-->
+        <key n="101">
+            <name>e</name>
+            <desc>Gun Trigger</desc>
+            <binding>
+                <command>property-assign</command>
+                <property>controls/armament/trigger</property>
+                <value>1</value>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>controls/armament/trigger</property>
+                    <value>0</value>
+                </binding>
+            </mod-up>
+        </key>
+        <key n="114">
+            <name>r</name>
+            <desc>Toggle radar standby mode</desc>
+            <binding>
+                <command>property-toggle</command>
+                <property>instrumentation/radar/radar-standby</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>controls_f16.radar_standby();</script>
+            </binding>
+        </key>
+        <key n="127">
+            <name>Delete</name>
+            <desc>Manual Pitch Override</desc>
+            <binding>
+                <command>property-toggle</command>
+                <property>/fdm/jsbsim/fcs/fbw-override</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>screen.log.write("Manual Pitch Override "~(getprop("fdm/jsbsim/fcs/fbw-override")==1?"ON":"OFF"), 0.5, 0.5, 1);</script>
+            </binding>
+        </key>
+        <key n="102">
+            <name>f</name>
+            <desc>Toggle refuel door</desc>
+            <binding>
+                <command>property-toggle</command>
+                <property>systems/refuel/serviceable</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>screen.log.write("Refuel door "~(getprop("systems/refuel/serviceable")==1?"OPEN":"CLOSED"), 0.5, 0.5, 1);</script>
+            </binding>
+        </key>
+        <key n="85">
+            <name>U</name>
+            <desc>Seat Down</desc>
+            <binding>
+                <command>property-adjust</command>
+                <property>controls/seat/vertical-adjust</property>
+                <step type="double">-0.005</step>
+                <min type="double">-0.06</min>
+                <max type="double">0.06</max>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/internal</property>
+                        <value>true</value>
+                    </equals>
+                    <greater-than-equals>
+                        <property>fdm/jsbsim/elec/bus/noness-ac-2</property>
+                        <value>100</value>
+                    </greater-than-equals>
+                </condition>
+            </binding>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                    <greater-than-equals>
+                        <property>fdm/jsbsim/elec/bus/noness-ac-2</property>
+                        <value>100</value>
+                    </greater-than-equals>
+                </condition>
+                <command>property-adjust</command>
+                <property>sim/current-view/y-offset-m</property>
+                <step type="double">-0.005</step>
+                <min type="double">0.76</min>
+                <max type="double">0.88</max>
+                <!--<property>sim/current-view/z-offset-m</property>
+                <step type="double">-0.0033</step>
+                <min type="double">-4</min>
+                <max type="double">-3.96</max>-->
+            </binding>
+        </key>
+        <key n="117">
+            <name>u</name>
+            <desc>Seat Up</desc>
+            <binding>
+                <command>property-adjust</command>
+                <property>controls/seat/vertical-adjust</property>
+                <step type="double">0.005</step>
+                <min type="double">-0.06</min>
+                <max type="double">0.06</max>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/internal</property>
+                        <value>true</value>
+                    </equals>
+                    <greater-than-equals>
+                        <property>fdm/jsbsim/elec/bus/noness-ac-2</property>
+                        <value>100</value>
+                    </greater-than-equals>
+                </condition>
+            </binding>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/current-view/view-number</property>
+                        <value>0</value>
+                    </equals>
+                    <greater-than-equals>
+                        <property>fdm/jsbsim/elec/bus/noness-ac-2</property>
+                        <value>100</value>
+                    </greater-than-equals>
+                </condition>
+                <command>property-adjust</command>
+                <property>sim/current-view/y-offset-m</property>
+                <step type="double">0.005</step>
+                <min type="double">0.76</min>
+                <max type="double">0.88</max>
+                <!--<property>sim/current-view/z-offset-m</property>
+                <step type="double">0.0033</step>
+                <min type="double">-4</min>
+                <max type="double">-3.96</max>-->
+            </binding>
+        </key>
+        <key n="121">
+            <name>y</name>
+            <desc>Next target select</desc>
+            <binding>
+                <command>property-assign</command>
+                <property>sim/model/f16/instrumentation/radar-awg-9/select-target</property>
+                <value>1</value>
+            </binding>
+        </key>
+        <key n="89">
+            <name>Y</name>
+            <desc>Prev target select</desc>
+            <binding>
+                <command>property-assign</command>
+                <property>sim/model/f16/instrumentation/radar-awg-9/select-target</property>
+                <value>-1</value>
+            </binding>
+        </key>
+        <key n="105">
+            <name>i</name>
+            <desc>Center target select</desc>
+            <binding>
+                <command>nasal</command>
+                <script>awg_9.selectCenterTarget();</script>
+            </binding>
+        </key>
+        <key n="25">
+            <name>ctrl-y</name>
+            <desc>Target deselect</desc>
+            <binding>
+                <command>nasal</command>
+                <script>awg_9.designate(nil);</script>
+            </binding>
+        </key>
+        <key n="82">
+            <name>R</name>
+            <desc>Increase Radar Range</desc>
+            <binding>
+                <command>nasal</command>
+                <script>awg_9.range_control(1);screen.log.write("Radar range "~getprop("instrumentation/radar/radar2-range"), 0.5, 0.5, 1);</script>
+            </binding>
+        </key>
+        <key n="69">
+            <name>E</name>
+            <desc>Decrease Radar Range</desc>
+            <binding>
+                <command>nasal</command>
+                <script>awg_9.range_control(-1);screen.log.write("Radar range "~getprop("instrumentation/radar/radar2-range"), 0.5, 0.5, 1);</script>
+            </binding>
+        </key>
+        <key n="119">
+            <name>w</name>
+            <desc>Cycle Weapon Type</desc>
+            <binding n="2">
+                <command>nasal</command>
+                <condition>
+                        <and>
+                        <not-equals>
+                            <property>sim/current-view/name</property>
+                            <value>Walk View</value>
+                        </not-equals>
+                        <not-equals>
+                            <property>sim/current-view/name</property>
+                            <value>Walker Orbit View</value>
+                        </not-equals>
+                        </and>
+                 </condition>
+                <script>pylons.fcs.cycleLoadedWeapon();</script>
+            </binding>
+        </key>
+        <key n="109">
+            <name>m</name>
+            <desc>Masterarm</desc>
+            <binding>
+                <command>nasal</command>
+                <script><![CDATA[
+                    controls_f16.masterarm();
+                ]]></script>
+            </binding>
+        </key>
+        <key n="83">
+            <name>S</name>
+            <desc>smoke</desc>
+            <binding n="3">
+                <command>property-toggle</command>
+                <condition>
+                        <and>
+                        <not-equals>
+                            <property>sim/current-view/name</property>
+                            <value>Walk View</value>
+                        </not-equals>
+                        <not-equals>
+                            <property>sim/current-view/name</property>
+                            <value>Walker Orbit View</value>
+                        </not-equals>
+                        </and>
+                 </condition>
+                <property>controls/smoke</property>
+            </binding>
+            <binding n="4">
+                <command>nasal</command>
+                <condition>
+                        <and>
+                        <not-equals>
+                            <property>sim/current-view/name</property>
+                            <value>Walk View</value>
+                        </not-equals>
+                        <not-equals>
+                            <property>sim/current-view/name</property>
+                            <value>Walker Orbit View</value>
+                        </not-equals>
+                        </and>
+                 </condition>
+                <script>screen.log.write("Smoke "~(getprop("controls/smoke")==0?"OFF":"ON"), 0.5, 0.5, 1);</script>
+            </binding>
+        </key>
+        <key n="262">
+          <name>F6</name>
+          <desc>noop</desc>
+          <repeatable type="bool">false</repeatable>
+          <binding>
+           <command>nasal</command>
+           <script>
+            f16.eject();
+           </script>
+          </binding>
+         </key>
+         <key n="111">
+          <name>o</name>
+          <desc>Deploy Chute</desc>
+          <repeatable type="bool">false</repeatable>
+          <binding>
+           <command>nasal</command>
+           <script>
+            f16.chute();
+           </script>
+          </binding>
+         </key>
+         <key n="79">
+          <name>O</name>
+          <desc>Release Chute</desc>
+          <repeatable type="bool">false</repeatable>
+          <binding>
+           <command>nasal</command>
+            <script>
+            	controls_f16.chute_release();
+            </script>
+           </binding>
+         </key>
+         <!--<key n="261">
+          <name>F5</name>
+          <desc>noop</desc>
+          <repeatable type="bool">false</repeatable>
+          <binding>
+                <command>dialog-show</command>
+                <dialog-name>Ground_Targeting</dialog-name>
+            </binding>
+         </key>-->
+         <key n="49">
+            <name>CTRL-1</name>
+            <mod-ctrl>
+                <desc>GCI pict</desc>
+                <binding>
+                    <command>property-assign</command>
+                    <property>instrumentation/gci/picture</property>
+                    <value>1</value>
+                </binding>
+            </mod-ctrl>
+        </key>
+        <key n="50">
+            <name>CTRL-2</name>
+            <mod-ctrl>
+                <desc>GCI dope</desc>
+                <binding>
+                    <command>property-assign</command>
+                    <property>instrumentation/gci/bogeydope</property>
+                    <value>1</value>
+                </binding>
+            </mod-ctrl>
+        </key>
+        <key n="51">
+            <name>CTRL-3</name>
+            <mod-ctrl>
+                <desc>GCI cutoff</desc>
+                <binding>
+                    <command>property-assign</command>
+                    <property>instrumentation/gci/cutoff</property>
+                    <value>1</value>
+                </binding>
+            </mod-ctrl>
+        </key>
+        <key n="52">
+            <name>CTRL-4</name>
+            <mod-ctrl>
+                <desc>IFF interrogation</desc>
+                <binding>
+                    <command>property-assign</command>
+                    <property>instrumentation/radar/iff</property>
+                    <value>1</value>
+                </binding>
+            </mod-ctrl>
+        </key>
+    </keyboard>	
+</PropertyList>

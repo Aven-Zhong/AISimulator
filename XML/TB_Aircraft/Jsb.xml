@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stParam nTypeID="1" strTypeName="Jsb" strPlugName="RA_Aircraft_Jsb_VS19.dll" nFactionID="1" strOrg="" strCountry="">
+ <sub_tp 类别="战斗机" 机翼="固定翼"/>
+ <stModelInfo>
+  <strSimpleName></strSimpleName>
+  <dRCS>0</dRCS>
+  <dIRI>500000</dIRI>
+  <Size dWidth="0" dHeight="0" dLength="0"/>
+  <str3DModel>F-16.FBX</str3DModel>
+  <str2DLabel>AIRCRAFT_GRJ.png</str2DLabel>
+  <ModelNode X="0" sNodeName="平台仓库" Visible="0" Y="0" Z="0"/>
+  <ModelNode X="3.432" sNodeName="挂点1" Visible="40" Y="-0.419" Z="-3.844"/>
+  <ModelNode X="2.123" sNodeName="挂点2" Visible="40" Y="-0.419" Z="-3.618"/>
+  <ModelNode X="-2.123" sNodeName="挂点3" Visible="40" Y="-0.419" Z="-3.844"/>
+  <ModelNode X="-3.432" sNodeName="挂点4" Visible="40" Y="-0.419" Z="-3.844"/>
+  <ModelNode X="0" sNodeName="设备仓库" Visible="0" Y="0" Z="0"/>
+ </stModelInfo>
+ <插件参数>
+  <模型名称>f16b52</模型名称>
+ </插件参数>
+ <vecLoadPlat/>
+ <vecLoadPart>
+  <LoadPart nTypeID="67108864" strTypeName="光电吊舱" sNodeName="设备仓库" nFactionID="4"/>
+  <LoadPart nTypeID="131072" strTypeName="导弹发射器" sNodeName="设备仓库" nFactionID="4"/>
+ </vecLoadPart>
+</stParam>

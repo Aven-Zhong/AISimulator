@@ -1,0 +1,234 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <submodel>
+    <name>flaresL</name>
+    <model>Aircraft/f16/Models/Effects/flare/flare.xml</model>
+    <trigger>ai/submodels/submodel[0]/flare-release</trigger>
+    <speed>75.0</speed>   <!-- ft/sec -->
+    <repeat>true</repeat>
+    <delay>0.75</delay>
+    <count>100</count>
+    <x-offset>-10.67</x-offset><!-- positive forward -->
+    <y-offset>2.99</y-offset><!-- feet -->
+    <z-offset>0.15</z-offset>
+    <pitch-offset>-89.0</pitch-offset>
+    <life>7</life>
+    <buoyancy>8</buoyancy>
+    <wind>true</wind>
+    <weight>1</weight>
+    <cd>0.1</cd>
+    <eda>0.12</eda>
+    <randomness>
+        <azimuth>5</azimuth>
+        <elevation>5</elevation>
+    </randomness>
+  </submodel>
+
+  <submodel>
+    <name>gun-pod</name>
+    <model>Aircraft/f16/Models/Armament/Weapons/M61A1/tracer.xml</model>
+    <trigger>fdm/jsbsim/fcs/guntrigger</trigger>
+    <speed>3379.0</speed><!-- ft/sec -->
+    <weight>0.226</weight><!-- lbm -->
+    <cd>0.09</cd>
+    <eda>0.00338158219</eda><!-- sqft -->
+    <life>3.0</life>
+    <repeat>true</repeat>
+    <delay>0.12</delay>
+    <count>-1</count>
+    <randomness>
+        <azimuth> 0 </azimuth>
+        <elevation> 0 </elevation>
+        <cd>  0 </cd>
+        <life>  0 </life>
+    </randomness>
+    <offsets>
+        <x-m> -3.16</x-m>
+        <y-m> -0.81</y-m>
+        <z-m>  0.17</z-m>
+        <heading-deg>0</heading-deg>
+        <pitch-deg>0</pitch-deg>
+    </offsets>
+    <aero-stabilised>false</aero-stabilised>
+    <wind>false</wind>
+  </submodel>
+
+  <submodel>
+    <name>M61A1 shell</name>
+    <model>Models/Geometry/null.ac</model>
+    <trigger>fdm/jsbsim/fcs/guntrigger</trigger>
+    <speed>3379.0</speed><!-- ft/sec -->
+    <weight>0.226</weight><!-- lbm -->
+    <cd>0.09</cd>
+    <eda>0.00338158219</eda><!-- sqft -->
+    <life>6.5</life> <!-- 3.61NM distance -->
+    <repeat>true</repeat>
+    <delay>0.01</delay><!-- 6000 per min -->
+    <count>-1</count>
+    <randomness>
+        <azimuth> 0 </azimuth>
+        <elevation> 0 </elevation>
+        <cd>  0 </cd>
+        <life>  0 </life>
+    </randomness>
+    <offsets>
+        <x-m> -3.16</x-m>
+        <y-m> -0.81</y-m>
+        <z-m>  0.17</z-m>
+        <heading-deg>0</heading-deg>
+        <pitch-deg>0</pitch-deg>
+    </offsets>
+    <wind>false</wind>
+    <aero-stabilised>false</aero-stabilised>
+    <collision>true</collision>
+    <collision-report>sim/ai/aircraft/collision/bullet</collision-report>
+    <impact>true</impact>
+    <impact-reports>/ai/models/model-impact</impact-reports>
+    <submodel-path>Aircraft/f16/Models/Armament/Weapons/M61A1/bullet-submodel.xml</submodel-path>
+  </submodel>
+
+  <submodel>
+    <name>gunsmoke</name>
+    <model>Aircraft/f16/Models/Armament/Weapons/M61A1/smoke.xml</model>
+    <trigger>fdm/jsbsim/fcs/guntrigger</trigger>
+    <speed>10</speed>
+    <repeat>true</repeat>
+    <delay>0.01</delay>
+    <count>-1</count>
+    <offsets>
+        <x-m> -3.16</x-m>
+        <y-m> -0.81</y-m>
+        <z-m>  0.17</z-m>
+    </offsets>
+    <eda>10</eda>
+    <wind>true</wind>
+    <buoyancy>33</buoyancy>
+    <life>1</life>
+  </submodel>
+
+  <submodel>
+    <name>Hydra-70</name>
+    <model>Aircraft/f16/Models/Armament/Weapons/LAU-68/Hydra70.xml</model>
+    <trigger>fdm/jsbsim/fcs/hydra3ltrigger</trigger>
+    <speed>2000.0</speed><!-- ft/sec, due to no drag this should probably be around 65% of topspeed -->
+    <repeat>false</repeat>
+    <delay>0.0</delay>
+    <count>-1</count>
+    <offsets>
+        <x-m> -0.269</x-m><!-- in FEET and x is opposite normal FG model coordinates -->
+        <y-m> -9.46</y-m>
+        <z-m>  0.81</z-m>
+    </offsets>
+    <life>7.0</life><!-- since it has no drag, its lifetime should be as short as possible needed to hit stuff -->
+    <wind>true</wind>
+    <weight>23.6</weight> <!-- 13.6lbs Mk66 Rocket Motor, 10lbs M151 HE warhead -->
+    <cd>0.0</cd><!-- since it has engine and submodels dont support that, its drag is set to zero -->
+    <eda>0.00136354</eda>
+    <collision>true</collision>
+    <collision-report>sim/ai/aircraft/collision/bullet</collision-report>
+    <impact>true</impact>
+    <impact-reports>/ai/models/model-impact</impact-reports>
+    <submodel-path>Aircraft/f16/Models/Armament/Weapons/LAU-68/rocket-submodel.xml</submodel-path>
+  </submodel>
+
+  <submodel>
+    <name>Hydra-70</name>
+    <model>Aircraft/f16/Models/Armament/Weapons/LAU-68/Hydra70.xml</model>
+    <trigger>fdm/jsbsim/fcs/hydra3rtrigger</trigger>
+    <speed>2000.0</speed><!-- ft/sec -->
+    <repeat>false</repeat>
+    <delay>0.0</delay>
+    <count>-1</count>
+    <offsets>
+        <x-m> -0.269</x-m>
+        <y-m> -9.44</y-m>
+        <z-m>  0.81</z-m>
+    </offsets>
+    <life>7.0</life>
+    <wind>true</wind>
+    <weight>23.6</weight> <!-- 13.6lbs Mk66 Rocket Motor, 10lbs M151 HE warhead -->
+    <cd>0.0</cd>
+    <eda>0.00136354</eda>
+    <collision>true</collision>
+    <collision-report>sim/ai/aircraft/collision/bullet</collision-report>
+    <impact>true</impact>
+    <impact-reports>/ai/models/model-impact</impact-reports>
+    <submodel-path>Aircraft/f16/Models/Armament/Weapons/LAU-68/rocket-submodel.xml</submodel-path>
+  </submodel>
+
+  <submodel>
+    <name>Hydra-70</name>
+    <model>Aircraft/f16/Models/Armament/Weapons/LAU-68/Hydra70.xml</model>
+    <trigger>fdm/jsbsim/fcs/hydra7ltrigger</trigger>
+    <speed>2000.0</speed><!-- ft/sec -->
+    <repeat>false</repeat>
+    <delay>0.0</delay>
+    <count>-1</count>
+    <offsets>
+        <x-m> -0.269</x-m>
+        <y-m>  9.46</y-m>
+        <z-m>  0.81</z-m>
+    </offsets>
+    <life>7.0</life>
+    <wind>true</wind>
+    <weight>23.6</weight> <!-- 13.6lbs Mk66 Rocket Motor, 10lbs M151 HE warhead -->
+    <cd>0.0</cd>
+    <eda>0.00136354</eda>
+    <collision>true</collision>
+    <collision-report>sim/ai/aircraft/collision/bullet</collision-report>
+    <impact>true</impact>
+    <impact-reports>/ai/models/model-impact</impact-reports>
+    <submodel-path>Aircraft/f16/Models/Armament/Weapons/LAU-68/rocket-submodel.xml</submodel-path>
+  </submodel>
+
+  <submodel>
+    <name>Hydra-70</name>
+    <model>Aircraft/f16/Models/Armament/Weapons/LAU-68/Hydra70.xml</model>
+    <trigger>fdm/jsbsim/fcs/hydra7rtrigger</trigger>
+    <speed>2000.0</speed><!-- ft/sec -->
+    <repeat>false</repeat>
+    <delay>0.0</delay>
+    <count>-1</count>
+    <offsets>
+        <x-m> -0.269</x-m>
+        <y-m>  9.44</y-m>
+        <z-m>  0.81</z-m>
+    </offsets>
+    <life>7.0</life>
+    <wind>true</wind>
+    <weight>23.6</weight> <!-- 13.6lbs Mk66 Rocket Motor, 10lbs M151 HE warhead -->
+    <cd>0.0</cd>
+    <eda>0.00136354</eda>
+    <collision>true</collision>
+    <collision-report>sim/ai/aircraft/collision/bullet</collision-report>
+    <impact>true</impact>
+    <impact-reports>/ai/models/model-impact</impact-reports>
+    <submodel-path>Aircraft/f16/Models/Armament/Weapons/LAU-68/rocket-submodel.xml</submodel-path>
+  </submodel>
+
+  <submodel>
+    <name>flaresR</name>
+    <model>Aircraft/f16/Models/Effects/flare/flare.xml</model>
+    <trigger>ai/submodels/submodel[0]/flare-release</trigger>
+    <speed>68.0</speed>   <!-- ft/sec -->
+    <repeat>true</repeat>
+    <delay>0.75</delay>
+    <count>100</count>
+    <x-offset>-10.67</x-offset><!-- positive forward -->
+    <y-offset>-2.99</y-offset><!-- feet -->
+    <z-offset>0.15</z-offset>
+    <pitch-offset>-91.0</pitch-offset>
+    <life>6</life>
+    <buoyancy>8</buoyancy>
+    <wind>true</wind>
+    <weight>1</weight>
+    <cd>0.1</cd>
+    <eda>0.12</eda>
+    <randomness>
+        <azimuth>5</azimuth>
+        <elevation>5</elevation>
+    </randomness>
+  </submodel>
+</PropertyList>

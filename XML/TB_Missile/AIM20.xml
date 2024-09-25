@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stParam strPlugName="Missile_PG_VS19.dll" strOrg="" nTypeID="262144" strTypeName="AIM20" nFactionID="1" strCountry="">
+ <sub_tp/>
+ <stModelInfo>
+  <strSimpleName></strSimpleName>
+  <dRCS>0</dRCS>
+  <dIRI>520000</dIRI>
+  <Size dWidth="0" dLength="0" dHeight="0"/>
+  <str3DModel>Missile.FBX</str3DModel>
+  <str2DLabel>军标/NULL.png</str2DLabel>
+  <ModelNode Z="0" X="0" sNodeName="设备仓库" Visible="0" Y="0"/>
+ </stModelInfo>
+ <插件参数>
+  <制导雷达探测角度>120</制导雷达探测角度>
+  <制导雷达跟踪半径>500000</制导雷达跟踪半径>
+  <加速度>1000</加速度>
+  <射程>100000</射程>
+  <最大角加速度>10</最大角加速度>
+  <最大速度>1500</最大速度>
+  <末制导模式>0</末制导模式>
+  <末制导距离>150000</末制导距离>
+  <毁伤半径>100</毁伤半径>
+ </插件参数>
+ <vecLoadPart/>
+</stParam>

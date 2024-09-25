@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <sim>
+  <model> 
+   <livery>
+    <name type="string">RNLAF, J-229 "25 yrs service F-16"</name>
+    <texture>Liveries/Block10/78-0229.png</texture>
+    <owner type="string">RNLAF</owner>
+   </livery>
+   <livery-logo>
+    <texture>Liveries/yf/yf16-transp.png</texture>
+   </livery-logo>
+
+   <livery-patch>
+      <texture>Liveries/patch.default.png</texture>
+  </livery-patch>
+
+  <livery-pod>
+        <texture>Liveries/Block10/pod.25yrsRNLAF.png</texture>
+    </livery-pod>
+
+  <f16>
+     <dragchute type="bool">false</dragchute>
+  </f16>
+  </model>
+ </sim>
+
+  <f16>
+     <ejected type="bool">false</ejected>
+  </f16>
+</PropertyList>

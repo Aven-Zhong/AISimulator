@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="GB2312"?>
+<plugin_order>
+<cmd>
+	<order_code>驾驶操控</order_code>
+	<param>
+		<name>纵向杆位移</name>
+		<mandatory>1</mandatory>
+		<unit></unit>
+		<default>0</default>
+		<Info>0</Info>
+		<input_type></input_type>
+		<input_lst>
+		</input_lst>
+	</param>
+	<param>
+		<name>横向杆位移</name>
+		<mandatory>1</mandatory>
+		<unit></unit>
+		<default>0</default>
+		<Info>0</Info>
+		<input_type></input_type>
+		<input_lst>
+		</input_lst>
+	</param>
+	<param>
+		<name>油门位置</name>
+		<mandatory>1</mandatory>
+		<unit></unit>
+		<default>0</default>
+		<Info>0</Info>
+		<input_type></input_type>
+		<input_lst>
+		</input_lst>
+	</param>
+	<param>
+		<name>脚蹬位置</name>
+		<mandatory>1</mandatory>
+		<unit></unit>
+		<default>0</default>
+		<Info>0</Info>
+		<input_type></input_type>
+		<input_lst>
+		</input_lst>
+	</param>
+</cmd>
+<cmd>
+	<order_code>发射</order_code>
+	<param>
+		<name>目标编号</name>
+		<mandatory>1</mandatory>
+		<unit></unit>
+		<default>0</default>
+		<Info>0</Info>
+		<input_type></input_type>
+		<input_lst>
+		</input_lst>
+	</param>
+</cmd>
+<cmd>
+	<order_code>直飞</order_code>
+	<param>
+		<name>飞行高度</name>
+		<mandatory>1</mandatory>
+		<unit></unit>
+		<default>0</default>
+		<Info>0</Info>
+		<input_type></input_type>
+		<input_lst>
+		</input_lst>
+	</param>
+	<param>
+		<name>飞行速度</name>
+		<mandatory>1</mandatory>
+		<unit></unit>
+		<default>0</default>
+		<Info>0</Info>
+		<input_type></input_type>
+		<input_lst>
+		</input_lst>
+	</param>
+</cmd>
+<cmd>
+	<order_code>左转</order_code>
+	<param>
+		<name>滚转期望角</name>
+		<mandatory>1</mandatory>
+		<unit></unit>
+		<default>0</default>
+		<Info>0</Info>
+		<input_type></input_type>
+		<input_lst>
+		</input_lst>
+	</param>
+</cmd>
+<cmd>
+	<order_code>右转</order_code>
+	<param>
+		<name>滚转期望角</name>
+		<mandatory>1</mandatory>
+		<unit></unit>
+		<default>0</default>
+		<Info>0</Info>
+		<input_type></input_type>
+		<input_lst>
+		</input_lst>
+	</param>
+</cmd>
+<cmd>
+	<order_code>调速</order_code>
+	<param>
+		<name>目的速度</name>
+		<mandatory>1</mandatory>
+		<unit></unit>
+		<default>0</default>
+		<Info>0</Info>
+		<input_type></input_type>
+		<input_lst>
+		</input_lst>
+	</param>
+</cmd>
+<cmd>
+	<order_code>调高</order_code>
+	<param>
+		<name>目的高度</name>
+		<mandatory>1</mandatory>
+		<unit></unit>
+		<default>0</default>
+		<Info>0</Info>
+		<input_type></input_type>
+		<input_lst>
+		</input_lst>
+	</param>
+</cmd>
+<cmd>
+	<order_code>飞到某点</order_code>
+	<param>
+		<name>目的位置</name>
+		<mandatory>1</mandatory>
+		<unit></unit>
+		<default>0</default>
+		<Info>0</Info>
+		<input_type></input_type>
+		<input_lst>
+		</input_lst>
+	</param>
+	<param>
+		<name>飞行速度</name>
+		<mandatory>1</mandatory>
+		<unit></unit>
+		<default>0</default>
+		<Info>0</Info>
+		<input_type></input_type>
+		<input_lst>
+		</input_lst>
+	</param>
+</cmd>
+<cmd>
+	<order_code>巡航</order_code>
+	<param>
+		<name>航线点</name>
+		<mandatory>1</mandatory>
+		<unit></unit>
+		<default>0</default>
+		<Info>0</Info>
+		<input_type></input_type>
+		<input_lst>
+		</input_lst>
+	</param>
+	<param>
+		<name>飞行速度</name>
+		<mandatory>1</mandatory>
+		<unit></unit>
+		<default>0</default>
+		<Info>0</Info>
+		<input_type></input_type>
+		<input_lst>
+		</input_lst>
+	</param>
+</cmd>
+</plugin_order>

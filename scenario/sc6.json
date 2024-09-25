@@ -1,0 +1,28 @@
+{
+    "start_time": "2024-01-23 10:00:00",
+    "stop_time": "2024-04-23 10:20:00",
+    "objects": [
+        {
+            "id": "1001",
+            "faction": "red",
+            "lon": 120.342,
+            "lat": 22.339,
+            "alt": 5156,
+            "yaw": 138,
+            "spd": 182,
+            "missile_num": 0,
+            "sensor": true
+        },
+        {
+            "id": "2001",
+            "faction": "blue",
+            "lon": 120.329,
+            "lat": 22.325,
+            "alt": 4247,
+            "yaw": 132,
+            "spd": 169,
+            "missile_num": 0,
+            "sensor": true
+        }
+    ]
+}

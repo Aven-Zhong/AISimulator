@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+
+ <metrics>
+  <wingarea unit="FT2"> 300 </wingarea>
+  <wingspan unit="FT"> 30 </wingspan>
+  <chord unit="FT"> 11.32 </chord>
+  <htailarea unit="FT2"> 63.7 </htailarea>
+  <htailarm unit="FT"> 16.46 </htailarm>
+  <vtailarea unit="FT2"> 54.75 </vtailarea>
+  <vtailarm unit="FT"> 0 </vtailarm>
+  <wing_incidence unit="DEG"> 0 </wing_incidence>
+  <location name="AERORP" unit="IN">
+   <!-- -180.4336 = static margin of -4%mac
+        
+        2020 Sept:
+        
+        CoG is 3.5in, AeroRP is -1.9336in
+        4%mac = 0.4528ft = 5.4336in
+        
+        -1.9336in - 3.5in = 5.4336in
+        
+        Main-wheels is 0.56097m on X, which is 22.08543in
+          18.58543in from CoG
+        
+        
+          
+        2020 Oct:
+                
+        Pseudo fuel system and stores adjusted to not mess too much with static margin.
+        
+        Static margin translated aft 5in to about 14in from MLG, which is about 10% of distance from MLG to NLG.
+        The real (Block 10/15) CoG is 13in from MLG on X, and about 8.5-9in below engine Z. [Source: TO 1F-16A-1 change 14 2003]
+        
+    -->
+   <x> 3.0664 </x>
+   <y> 0 </y>
+   <z> -8 </z>
+  </location>
+  <location name="EYEPOINT" unit="IN">
+   <!-- This is where pilot g-force is calculated at. -->
+   <x> -156.2 </x>
+   <y> 0 </y>
+   <z> 29.5 </z>
+  </location>
+  <location name="VRP" unit="IN">
+   <x> 0 </x><!-- Keep this at 0,0,0 to have 1:1 relation to 3D model -->
+   <y> 0 </y>
+   <z> 0 </z>
+  </location>
+ </metrics>

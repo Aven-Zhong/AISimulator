@@ -1,0 +1,13 @@
+dwXpos  # 俯仰
+dwYpos  # 滚转
+dwZpos  # 油门
+dwRpos  # 侧滑
+
+elevator  # 俯仰 [-1,1] X
+aileron  # 滚转 [-1,1] Y
+throttle  # 油门杆位移 [0,1] Z
+rudder  # 偏航 [-1,1] R
+
+heading = 0.  # 偏航角yaw(弧度(-PI,PI))
+pitch = 0.  # 俯仰角(弧度(-PI,PI))
+roll = 0.  # 滚转角、横滚角(弧度(-PI,PI))

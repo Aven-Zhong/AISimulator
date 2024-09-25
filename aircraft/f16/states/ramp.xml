@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+    <name type="string" n="0">parked</name>
+
+    <overlay>
+        <fdm>
+            <jsbsim>
+                <elec>
+                    <switches>
+                        <main-pwr type="int">0</main-pwr>
+                        <epu type="int">0</epu>
+                        <epu-cover type="int">1</epu-cover>
+                        <epu-pin type="bool">1</epu-pin>
+                    </switches>
+                </elec>
+                <fcs>
+                    <canopy-engage type="bool">true</canopy-engage>
+                </fcs>
+            </jsbsim>
+        </fdm>
+        <controls>
+            <engines>
+                <engine n="0">
+                    <cutoff type="bool">true</cutoff>
+                    <starter type="bool">false</starter>
+                </engine>
+            </engines>
+            <seat>
+                <ejection-safety-lever type="bool">false</ejection-safety-lever>
+            </seat>
+        </controls>
+        <engines>
+            <engine n="0">
+                <running type="bool">false</running>
+            </engine>
+        </engines>
+        <f16>
+            <engine>
+                <feed type="int">0</feed><!-- OFF/NORM prevents starter, cutoff -->
+                <jfs-start-switch type="int">0</jfs-start-switch><!-- starter -1=1 1=2 0=off  goes to off at 55% rpm -->
+                <cutoff-release-lever type="bool">true</cutoff-release-lever><!-- cutoff -->
+                <running-state type="bool">false</running-state>
+            </engine>
+        </f16>
+        <canopy>
+            <position-norm type="double">1</position-norm>
+        </canopy>
+        <instrumentation>
+            <radar>
+                <radar-standby type="bool">true</radar-standby>
+            </radar>
+        </instrumentation>    
+    </overlay>
+
+</PropertyList>

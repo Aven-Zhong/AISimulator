@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stParam strPlugName="PhotoelectricSensor_VS19.dll" strOrg="" nFactionID="4" strCountry="" strTypeName="光电吊舱" nTypeID="67108864">
+ <sub_tp/>
+ <stModelInfo>
+  <strSimpleName></strSimpleName>
+  <dRCS>0</dRCS>
+  <dIRI>0</dIRI>
+  <Size dWidth="0" dLength="0" dHeight="0"/>
+  <str3DModel>空挂点.FBX</str3DModel>
+  <str2DLabel>军标/NULL.png</str2DLabel>
+  <ModelNode sNodeName="挂点1" X="-0.658" Z="0.295" Y="-1.832" Visible="40"/>
+  <ModelNode sNodeName="挂点10" X="-0.658" Z="0.295" Y="-1.832" Visible="40"/>
+  <ModelNode sNodeName="挂点2" X="-0.658" Z="0.295" Y="-1.832" Visible="40"/>
+  <ModelNode sNodeName="挂点3" X="-0.658" Z="0.295" Y="-1.832" Visible="40"/>
+  <ModelNode sNodeName="挂点4" X="-0.658" Z="0.295" Y="-1.832" Visible="40"/>
+  <ModelNode sNodeName="挂点5" X="-0.658" Z="0.295" Y="-1.832" Visible="40"/>
+  <ModelNode sNodeName="挂点6" X="-0.658" Z="0.295" Y="-1.832" Visible="40"/>
+  <ModelNode sNodeName="挂点7" X="-0.658" Z="0.295" Y="-1.832" Visible="40"/>
+  <ModelNode sNodeName="挂点8" X="-0.658" Z="0.295" Y="-1.832" Visible="40"/>
+  <ModelNode sNodeName="挂点9" X="-0.658" Z="0.295" Y="-1.832" Visible="40"/>
+  <ModelNode sNodeName="设备仓库" X="0" Z="0" Y="0" Visible="0"/>
+ </stModelInfo>
+ <插件参数>
+  <最大视角>360</最大视角>
+ </插件参数>
+ <vecLoadPart/>
+</stParam>

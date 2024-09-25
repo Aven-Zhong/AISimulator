@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+    <name type="string" n="0">approach</name>
+
+    <overlay>
+        <fdm>
+            <jsbsim>
+                <elec>
+                    <switches>
+                        <main-pwr type="int">2</main-pwr>
+                        <epu type="int">1</epu>
+                        <epu-cover type="int">0</epu-cover>
+                        <epu-pin type="bool">0</epu-pin>
+                    </switches>
+                </elec>
+            </jsbsim>
+        </fdm>
+        <controls>
+            <engines>
+                <engine n="0">
+                    <cutoff type="bool">false</cutoff>
+                    <starter type="bool">false</starter>
+                    <throttle type="double">0.5</throttle>
+                </engine>
+            </engines>
+            <gear>
+                <gear-down type="double">1</gear-down>
+                <brake-parking type="bool">false</brake-parking>
+            </gear>
+            <lighting>
+                <ext-lighting-panel>
+                    <master type="bool">true</master>
+                </ext-lighting-panel>
+                <lighting-panel>
+                    <pri-inst-pnl-knob type="double">0.5</pri-inst-pnl-knob>
+                    <flood-inst-pnl-knob type="double">0.2</flood-inst-pnl-knob>
+                    <console-primary-knob type="double">0.3</console-primary-knob>
+                    <console-flood-knob type="double">0.3</console-flood-knob>
+                    <data-entry-display type="double">1.0</data-entry-display>
+                </lighting-panel>
+                <landing-light type="int">1</landing-light>
+            </lighting>
+            <seat>
+                <ejection-safety-lever type="bool">true</ejection-safety-lever>
+            </seat>
+            <ventilation>
+                <airconditioning-enabled type="bool">true</airconditioning-enabled>
+                <airconditioning-source type="int">1</airconditioning-source>
+            </ventilation>
+        </controls>
+        <engines>
+            <engine n="0">
+                <running type="bool">true</running>
+            </engine>
+        </engines>
+        
+        <f16>
+            <engine>
+                <feed type="int">1</feed><!-- OFF/NORM prevents starter, cutoff -->
+                <jfs-start-switch type="int">0</jfs-start-switch><!-- starter -1=1 1=2 0=off  goes to off at 55% rpm -->
+                <cutoff-release-lever type="bool">false</cutoff-release-lever><!-- cutoff -->
+                <running-state type="bool">true</running-state>
+            </engine>
+            <avionics>
+                <power-rdr-alt type="int">2</power-rdr-alt>
+                <power-fcr type="bool">true</power-fcr>
+                <power-right-hdpt type="bool">true</power-right-hdpt>
+                <power-left-hdpt type="bool">true</power-left-hdpt>
+                <power-mmc type="bool">true</power-mmc>
+                <power-st-sta type="bool">true</power-st-sta>
+                <power-mfd type="bool">true</power-mfd>
+                <power-ufc type="bool">true</power-ufc>
+                <power-gps type="bool">true</power-gps>
+                <power-dl type="bool">true</power-dl>
+                <ins-knob type="int">3</ins-knob>
+                <hud-sym type="double">1.0</hud-sym>
+                <hud-brt type="double">1.0</hud-brt>
+                <ew-disp-switch type="bool">true</ew-disp-switch>
+                <ew-rwr-switch type="bool">true</ew-rwr-switch>
+                <ew-mws-switch type="bool">true</ew-mws-switch>
+                <ew-jmr-switch type="bool">true</ew-jmr-switch>
+                <ew-mode-knob type="int">1</ew-mode-knob>
+                <cmds-01-switch type="bool">true</cmds-01-switch>
+                <cmds-02-switch type="bool">true</cmds-02-switch>
+                <cmds-ch-switch type="bool">true</cmds-ch-switch>
+                <cmds-fl-switch type="bool">true</cmds-fl-switch>
+                <pbg-switch type="int">0</pbg-switch>
+            </avionics>
+        </f16>
+        <instrumentation>
+            <radar>
+                <radar-standby type="bool">false</radar-standby>
+            </radar>
+            <comm n="0">
+                <volume type="double">1</volume>
+            </comm>
+            <comm n="1">
+                <volume type="double">1</volume>
+            </comm>
+        </instrumentation>    
+    </overlay>
+
+</PropertyList>

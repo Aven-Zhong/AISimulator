@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stParam strOrg="" strCountry="" strTypeName="导弹发射器" nTypeID="131072" strPlugName="RA_Missile_Ejector_VS19.dll" nFactionID="4">
+ <sub_tp/>
+ <stModelInfo>
+  <strSimpleName></strSimpleName>
+  <dRCS>0</dRCS>
+  <dIRI>0</dIRI>
+  <Size dWidth="0" dLength="0" dHeight="0"/>
+  <str3DModel>空挂点.FBX</str3DModel>
+  <str2DLabel>军标/NULL.png</str2DLabel>
+  <ModelNode Z="0.295" Y="-1.832" Visible="40" X="-0.658" sNodeName="挂点1"/>
+  <ModelNode Z="0.295" Y="-1.832" Visible="40" X="-0.658" sNodeName="挂点10"/>
+  <ModelNode Z="0.295" Y="-1.832" Visible="40" X="-0.658" sNodeName="挂点2"/>
+  <ModelNode Z="0.295" Y="-1.832" Visible="40" X="-0.658" sNodeName="挂点3"/>
+  <ModelNode Z="0.295" Y="-1.832" Visible="40" X="-0.658" sNodeName="挂点4"/>
+  <ModelNode Z="0.295" Y="-1.832" Visible="40" X="-0.658" sNodeName="挂点5"/>
+  <ModelNode Z="0.295" Y="-1.832" Visible="40" X="-0.658" sNodeName="挂点6"/>
+  <ModelNode Z="0.295" Y="-1.832" Visible="40" X="-0.658" sNodeName="挂点7"/>
+  <ModelNode Z="0.295" Y="-1.832" Visible="40" X="-0.658" sNodeName="挂点8"/>
+  <ModelNode Z="0.295" Y="-1.832" Visible="40" X="-0.658" sNodeName="挂点9"/>
+  <ModelNode Z="0" Y="0" Visible="0" X="0" sNodeName="设备仓库"/>
+ </stModelInfo>
+ <插件参数>
+  <转火时间>0</转火时间>
+ </插件参数>
+ <vecLoadPart>
+  <LoadPart strTypeName="空空导弹" nTypeID="262144" nFactionID="1" sNodeName="挂点1"/>
+  <LoadPart strTypeName="空空导弹" nTypeID="262144" nFactionID="1" sNodeName="挂点2"/>
+  <LoadPart strTypeName="空空导弹" nTypeID="262144" nFactionID="1" sNodeName="挂点3"/>
+  <LoadPart strTypeName="空空导弹" nTypeID="262144" nFactionID="1" sNodeName="挂点4"/>
+  <LoadPart strTypeName="空空导弹" nTypeID="262144" nFactionID="1" sNodeName="挂点5"/>
+ </vecLoadPart>
+</stParam>

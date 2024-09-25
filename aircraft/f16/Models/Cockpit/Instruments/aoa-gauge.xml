@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+ <path>aoa-gauge.ac</path>
+
+ <animation>
+	<type>select</type>
+	<object-name>AOA_off-flag</object-name>
+	<condition>
+		<or>
+			<not>
+				<property>systems/static/serviceable</property>
+			</not>
+			<less-than-equals>
+				<property>fdm/jsbsim/elec/bus/emergency-ac-1</property>
+				<value>100</value>
+			</less-than-equals>
+		</or>
+	</condition>
+ </animation>
+ 
+ <animation>
+	<type>select</type>
+	<object-name>AOA_tape</object-name>
+	<condition>
+		<and>
+			<property>systems/static/serviceable</property>
+			<greater-than>
+				<property>fdm/jsbsim/elec/bus/emergency-ac-1</property>
+				<value>100</value>
+			</greater-than>
+		</and>
+	</condition>
+ </animation>
+
+ <animation>
+	<type>textranslate</type>
+	<object-name>AOA_tape</object-name>
+	<property>orientation/alpha-deg</property>
+	<condition>
+		<and>
+			<greater-than-equals>
+				<property>fdm/jsbsim/elec/bus/emergency-ac-1</property>
+				<value>100</value>
+			</greater-than-equals>
+			<greater-than-equals>
+				<property>velocities/groundspeed-kt</property>
+				<value>20</value>
+			</greater-than-equals>
+		</and>
+	</condition>
+	<factor>0.0235</factor>
+	<axis>
+		<x>0</x>
+		<y>1</y>
+	</axis>
+ </animation>
+
+
+ <!-- lighting -->
+  <effect>
+        <inherits-from>Aircraft/f16/Models/Effects/f16panel-left</inherits-from>
+        <parameters>
+            <implicit-lightmap-enabled type="int">0</implicit-lightmap-enabled>
+        </parameters>
+        <object-name>AOA_mount</object-name>
+  <object-name>AOA_knob</object-name>
+  
+ </effect>
+ 
+ <animation>
+  <object-name>AOA_mask</object-name>
+  <object-name>AOA_off-flag</object-name>
+  <object-name>AOA_tape</object-name>
+  <condition>
+                        <greater-than-equals>
+                            <property>fdm/jsbsim/elec/bus/emergency-ac-1</property>
+                            <value>100</value>
+                        </greater-than-equals>
+  </condition>
+  <type>material</type>
+  <emission> 
+   <factor-prop>controls/lighting/lighting-panel/pri-inst-pnl</factor-prop>
+   <red>0.6</red>
+   <green>0.4</green>
+   <blue>0.3</blue>
+  </emission>
+ </animation>
+
+</PropertyList>

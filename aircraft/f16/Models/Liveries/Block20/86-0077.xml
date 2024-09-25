@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+ <sim>
+  <model>
+   <livery>
+    <name type="string">BAC 2 W, "Dark Falcon (Demo scheme 2018)"</name>
+    <texture>Liveries/Block20/86-0077.png</texture>
+    <owner type="string">BAC</owner>
+   </livery>
+   <livery-logo>
+    <texture>Liveries/yf/yf16-transp.png</texture>
+   </livery-logo>
+
+   <livery-patch>
+      <texture>Liveries/Block20/patch.dark-falcon.png</texture>
+  </livery-patch>
+
+  <livery-pod>
+        <texture>Armament/External-stores/MXU-648.png</texture>
+    </livery-pod>
+
+  <f16>
+     <dragchute type="bool">true</dragchute>
+  </f16>
+  </model>
+ </sim>
+</PropertyList>

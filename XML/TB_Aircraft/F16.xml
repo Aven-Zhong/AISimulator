@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stParam nTypeID="1" strCountry="" strPlugName="RA_Aircraft_Jsb_VS19.dll" nFactionID="2" strOrg="" strTypeName="F16">
+ <sub_tp 机翼="固定翼" 类别="战斗机"/>
+ <stModelInfo>
+  <strSimpleName></strSimpleName>
+  <dRCS>0</dRCS>
+  <dIRI>100000</dIRI>
+  <Size dHeight="0" dLength="0" dWidth="0"/>
+  <str3DModel>F-16.FBX</str3DModel>
+  <str2DLabel>AIRCRAFT_FQJ.png</str2DLabel>
+  <ModelNode Y="0" Z="0" Visible="0" X="0" sNodeName="平台仓库"/>
+  <ModelNode Y="-0.419" Z="-3.844" Visible="40" X="3.432" sNodeName="挂点1"/>
+  <ModelNode Y="-0.419" Z="-3.618" Visible="40" X="2.123" sNodeName="挂点2"/>
+  <ModelNode Y="-0.419" Z="-3.844" Visible="40" X="-2.123" sNodeName="挂点3"/>
+  <ModelNode Y="-0.419" Z="-3.844" Visible="40" X="-3.432" sNodeName="挂点4"/>
+  <ModelNode Y="0" Z="0" Visible="0" X="0" sNodeName="设备仓库"/>
+ </stModelInfo>
+ <插件参数>
+  <模型名称>f16</模型名称>
+ </插件参数>
+ <vecLoadPlat/>
+ <vecLoadPart>
+  <LoadPart nTypeID="67108864" nFactionID="4" strTypeName="光电吊舱" sNodeName="设备仓库"/>
+ </vecLoadPart>
+</stParam>
