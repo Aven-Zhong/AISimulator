@@ -2,17 +2,14 @@ import ctypes
 import json
 import random
 
-from gymnasium.spaces import Box
-
 from ctypes import *
-from const.Agent import Agent_1V1_Red, Agent_1V1_Blue
+from const.Agent import Agent_1V1_Red
 from const.Judge import Judge1V1
-from const.helper import input_str_2_observation, action_2_order, input_str_2_judge_obs, obs_2_space
+from const.helper import input_str_2_observation, action_2_order, input_str_2_judge_obs
 from const.Record_acmi import Record_acmi
 from const.Obs import *
 from const.Vis import *
-from const.Record import *
-from ABSM.agent_ABSM import Agent_1V1_Blue_asm_altitude
+from algorithm.ABSM.agent_ABSM import Agent_1V1_Blue_asm_altitude
 
 red_aircraft_id = "1001"
 blue_aircraft_id = "2001"

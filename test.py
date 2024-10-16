@@ -56,7 +56,7 @@ if __name__ == '__main__':
         print(f'----cycle {i}----start_time {start_time}----now_time {now_time}'
               f'----this_cycle_time {now_time-pre_time}----total_time {now_time-start_time}----')
 
-        with open('./re_abc/log.txt','a', encoding='utf-8') as file:
+        with open('algorithm/re_abc/log.txt', 'a', encoding='utf-8') as file:
             file.write(f'----cycle {i}----start_time {start_time}----now_time {now_time}'
               f'----this_cycle_time {(now_time-pre_time)}----total_time {now_time-start_time}----\n')
         pre_time = now_time

@@ -1,6 +1,5 @@
 import random
-import sys
-from re_abc.food import Food
+from algorithm.re_abc.food import Food
 from datetime import datetime
 
 
