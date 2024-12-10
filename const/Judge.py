@@ -9,6 +9,7 @@ class Judge1V1:
         # 重置相关处理[to do]
         print("judge reset ...")
 
+
     # 自行定义对局结束条件[0表示未结束,其余结束返回值自行定义]
     def step(self, judge_obs):
         # print("simtime = ",judge_obs.simtime)

@@ -10,22 +10,23 @@ from const.helper import input_str_2_observation, action_2_order, input_str_2_ju
 from const.Record_acmi import Record_acmi
 from const.Obs import *
 from const.Vis import *
-from PINN.const_pinn.train_data import TrainData
+from PINN_roll.Blue_agent_roll import Agent_1v1_Blue_Roll
 
-red_aircraft_id = "1001"
-blue_aircraft_id = "2001"
+RED_AGENT_ID = "1001"
+BLUE_AGENT_ID = "2001"
 DEFAULT_SC_PATH = './scenario/sc.json'
 
 
 # 1v1近距空战仿真环境(支持多实例)
-class AISimEnv1v1:
+class AISimEnv1v1_PINN_roll:
     # 初始化仿真环境
     def __init__(self,
                  sc,  # 想定内容
-                 grp_no,  # 实例组号
-                 need_show,  # 是否需要可视化
-                 need_record,  # 是否记录回放文件
-                 record_interval):  # 回放记录间隔
+                 grp_no: int,  # 实例组号
+                 need_record: bool,  # 是否记录回放文件
+                 record_interval: int = 1,  # 回放记录间隔
+                 show_roll: bool = False  # 是否打印仿真过程
+                 ):
         self.sc = sc  # 想定json内容
         self.grp_no = grp_no  # 实例组号
         self.done = False  # 想定是否结束
@@ -37,14 +38,12 @@ class AISimEnv1v1:
 
         print("init = ", init)
 
-        self.red = Agent_1V1_Red("1001")  # 根据想定里面红方的id填写
+        self.red = Agent_1V1_Red(RED_AGENT_ID)  # 根据想定里面红方的id填写
         # self.blue = Agent_1V1_Blue("2001")  # 根据想定里面蓝方的id填写
-        self.blue = Agent_1V1_Blue("2001")
+        self.blue = Agent_1v1_Blue_Roll(BLUE_AGENT_ID)
         self.judge = Judge1V1()  # 裁决方
 
-        # self.vis = VisServer()  # 可视化数据推送服务
-        self.record = Record_acmi(path=f"./record/", grp_no=self.grp_no)  # 数据记录
-        self.need_show = need_show
+        self.record = Record_acmi(path=f"./PINN_roll/record/", grp_no=self.grp_no)  # 数据记录
         self.need_record = need_record
 
         self.index = 0
@@ -54,28 +53,30 @@ class AISimEnv1v1:
         self.blue_obs = None  # 蓝方态势信息
         self.judge_obs = None  # 裁决方态势信息（上帝视角）
 
-
         self.preObservation = None  # 在step过程中上一次记录的obs信息
-
+        self.show_roll = show_roll
 
     # 重新开始一局
-    def reset(self, sc, index):
+    def reset(self, sc, index, pidParams):
         # self.red.reset()
-        self.blue.reset()
+
+        self.blue.reset(pidParams)
         self.judge.reset()
-        #self.vis.close()
-        #self.vis = VisServer()
-        self.record.reset(index)
+        if self.need_record:
+            self.record.reset(index)
 
-        # 采用随机想定
-        random_int = random.randint(1, 10)
-        new_path = DEFAULT_SC_PATH.replace('sc.json', f'sc{random_int}.json')
-        print(new_path)
-        file = open(new_path, 'r')
-        self.sc = file.read()
-        file.close()
 
-        input_ptr = c_char_p(sc.encode('utf-8'))
+        # # 采用随机想定
+        # random_int = random.randint(1, 10)
+        # new_path = DEFAULT_SC_PATH.replace('sc.json', f'sc{random_int}.json')
+        # print(new_path)
+        # file = open(new_path, 'r')
+        # self.sc = file.read()
+        # file.close()
+
+        self.sc = sc
+
+        input_ptr = c_char_p(self.sc.encode('utf-8'))
         init = self.aisimulator.Init(self.grp_no, input_ptr)  # 仿真环境初始化
         self.index = index
 
@@ -87,10 +88,11 @@ class AISimEnv1v1:
         self.get_data()
 
         # 打印蓝方态势
-        print(f"alt: {self.blue_obs.self_aircraft[0].alt} "
-              f"roll:{self.blue_obs.self_aircraft[0].roll/math.pi*180}"
-              f"lon: {self.blue_obs.self_aircraft[0].lon}"
-              f"lat: {self.blue_obs.self_aircraft[0].lat}")
+        if self.show_roll:
+            # print(f"alt: {self.blue_obs.self_aircraft[0].alt} ")
+            # print(f"lon: {self.blue_obs.self_aircraft[0].lon}")
+            # print(f"lat: {self.blue_obs.self_aircraft[0].lat}")
+            print(f"roll:{self.blue_obs.self_aircraft[0].roll/math.pi * 180}")
 
         # 2.进行胜负裁决判断处理
         res = self.judge.step(self.judge_obs)
@@ -119,7 +121,8 @@ class AISimEnv1v1:
             self.aisimulator.Control(self.grp_no,
                                      c_char_p(action_2_order(blue_aircraft_id, blue_action).encode('utf-8')))
         else:
-            self.record.terminal()
+            if self.need_record:
+                self.record.terminal()
             print("单局结束，结果为：", res)
 
         return res
@@ -152,5 +155,4 @@ class AISimEnv1v1:
         judge_input = self.aisimulator.GetSimOutput(self.grp_no, 0)
         self.judge_obs = input_str_2_judge_obs(judge_input)
         # print(judge_input)
-
 

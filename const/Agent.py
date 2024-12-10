@@ -2,8 +2,10 @@ import json
 import math
 import os
 import numpy as np
+import tensorflow as tf
 from const.Obs import *
 from train.blue_agent.highAgent import highAgent
+from PINN.blue_agent.HighAgent_PINN import HighAgent_PINN
 
 
 # 红方智能体[红方开发人员基于]
@@ -128,8 +130,10 @@ class Agent_1V1_Blue:
         self.id = id
         self.blue_agent = highAgent()
 
+
     def reset(self):
         # 重置agent相关参数[to do]
+
         print("blue agent reset ...")
 
     # 调用step函数,返回控制指令
@@ -137,7 +141,11 @@ class Agent_1V1_Blue:
         if not obs.enemy_aircraft:  # 检查敌机列表是否为空
             print("Warning: No enemy aircraft data available.")
             obs.enemy_aircraft = np.zeros(24)
-        m_pidtrl = self.blue_agent.action_feizhixian(obs.self_aircraft[0], obs.enemy_aircraft[0])
+
+        m_pidtrl = self.blue_agent.action_feizhixian(obs.self_aircraft[0],
+                                                     obs.enemy_aircraft[0])
+
         action = Action(m_pidtrl.dwXpos, m_pidtrl.dwYpos, m_pidtrl.dwZpos, m_pidtrl.dwRpos)
 
         return action
+

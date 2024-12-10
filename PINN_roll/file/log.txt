@@ -1,0 +1,9 @@
+roll_start:0 roll_exp: 60
+Optimal PID parameters: Kp=8.99175359169354, Ki=0.10254325666148723, Kd=0.4726095346544904
+Optimal PID parameters: Kp=-0.7469683955814215, Ki=1.1407645716110526e-05, Kd=0.23309216286721124
+最优值: 9775.271770808175
+是否成功退出：False
+迭代次数：1000
+终止原因：Maximum number of iterations has been exceeded.
+结束时间: 2024-12-09 18:44:08.486
+总时间 21:44:46.435698

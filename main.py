@@ -5,7 +5,7 @@ from Env import AISimEnv1v1
 import json
 import datetime
 
-run_times = 1  # 运行局数
+run_times = 10  # 运行局数
 
 if __name__ == '__main__':
 

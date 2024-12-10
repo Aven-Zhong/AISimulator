@@ -60,7 +60,7 @@ class highAgent:
         ###############################做决策-begin######################################################################
 
         m_pidtrl = self.lowAgent.autoDriver.altiCtrl(5000, 200)
-        m_rollCtrl = self.lowAgent.autoDriver.rollCtrl(0)
+        m_rollCtrl = self.lowAgent.autoDriver.rollCtrl(30/180*math.pi)
         m_pidtrl.dwYpos = m_rollCtrl.dwYpos
 
         return m_pidtrl
