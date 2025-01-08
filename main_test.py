@@ -70,3 +70,6 @@ for epoch in range(iterations):
         ax.legend()
         plt.pause(0.1)
 plt.show()
+datas = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+for data in datas:
+    print(f"pred: {net(data)} true: {np.exp(data)}")

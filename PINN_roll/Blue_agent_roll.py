@@ -12,25 +12,32 @@ class Agent_1v1_Blue_Roll:
         self.id = id
         self.flightData = FlightData()
         # 滚转角
-        self.rollCtrl_roll_u = PID()
-        self.rollCtrl_roll_u.setParam(3, 0., 0., 1)
-        self.rollCtrl_roll_u.setLimits(-9, 9)
+        # self.rollCtrl_roll_u = PID()
+        # self.rollCtrl_roll_u.setParam(3, 0., 0., 1)
+        # self.rollCtrl_roll_u.setLimits(-9, 9)
+        #
+        # self.rollCtrl_u_ctrl = PID()
+        # self.rollCtrl_u_ctrl.setParam(-1, 0., 0., 1)
+        # self.rollCtrl_u_ctrl.setLimits(-1, 1)
 
-        self.rollCtrl_u_ctrl = PID()
-        self.rollCtrl_u_ctrl.setParam(-1, 0., 0., 1)
-        self.rollCtrl_u_ctrl.setLimits(-1, 1)
+        self.rollCtrl = PID()
+        self.rollCtrl.setParam(-1, 0., 0., 1)
+        self.rollCtrl.setLimits(-1, 1)
 
         self.start_roll = 0
-        self.target_roll = 60
+        self.target_roll = 30
 
 
-    def reset(self, pidParams: list = None):
-        if pidParams is None or len(pidParams) != 6:
+    def reset(self, params: list = None):
+        if params is None or len(params) != 5:
             print("Error: No PID parameters provided.")
             return
 
-        self.rollCtrl_roll_u.setParam(pidParams[0], pidParams[1], pidParams[2], 1)
-        self.rollCtrl_u_ctrl.setParam(pidParams[3], pidParams[4], pidParams[5], 1)
+        # self.rollCtrl_roll_u.setParam(params[0], params[1], params[2], 1)
+        # self.rollCtrl_u_ctrl.setParam(params[3], params[4], params[5], 1)
+        self.rollCtrl.setParam(params[0], params[1], params[2], 1)
+        self.start_roll = params[3]
+        self.target_roll = params[4]
         print("blue reset")
 
     def step(self, obs: Observation):
@@ -43,12 +50,14 @@ class Agent_1v1_Blue_Roll:
         # print("roll_exp:", roll_exp)
         ctrl = CtrlInfo()
 
-        self.rollCtrl_roll_u.setPid(roll_exp / 180 * math.pi, self.flightData.phi)
-        uc = self.rollCtrl_roll_u.update()
+        # self.rollCtrl_roll_u.setPid(roll_exp / 180 * math.pi, self.flightData.phi)
+        # uc = self.rollCtrl_roll_u.update()
+        #
+        # self.rollCtrl_u_ctrl.setPid(uc, self.flightData.omega[0])
+        # ctrl.dwYpos = self.rollCtrl_u_ctrl.update()
 
-        self.rollCtrl_u_ctrl.setPid(uc, self.flightData.omega[0])
-        ctrl.dwYpos = self.rollCtrl_u_ctrl.update()
-
+        self.rollCtrl.setPid(roll_exp / 180 * math.pi, self.flightData.phi)
+        ctrl.dwYpos = self.rollCtrl.update()
 
         action = Action(0, ctrl.dwYpos, 0.5, 0)
 

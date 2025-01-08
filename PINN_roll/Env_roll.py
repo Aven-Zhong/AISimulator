@@ -57,10 +57,10 @@ class AISimEnv1v1_PINN_roll:
         self.show_roll = show_roll
 
     # 重新开始一局
-    def reset(self, sc, index, pidParams):
+    def reset(self, sc, index, params):
         # self.red.reset()
 
-        self.blue.reset(pidParams)
+        self.blue.reset(params)
         self.judge.reset()
         if self.need_record:
             self.record.reset(index)

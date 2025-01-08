@@ -25,13 +25,14 @@ if __name__ == '__main__':
     # 创建训练环境[根据情况处理]
     env = AISimEnv1v1_PINN_roll(content, 1, True, 1, True)
     roll_data = []
-    pid_params = [8.99175359169354, 0.10254325666148723, 0.4726095346544904,
-                  -0.7469683955814215, 1.1407645716110526e-05, 0.23309216286721124]
+    roll_start = 0
+    roll_target = 60
+    params = [-1, 0.001, 0.0001, roll_start, roll_target]
     index = 0
     while index < run_times:
         iteration = 1
         fitness = 0.0
-        env.reset(content, index, pidParams=pid_params)
+        env.reset(content, index, params=params)
         now = datetime.datetime.now()
         milliseconds = now.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
         print("第", index, "局开始时间:", milliseconds)
@@ -39,14 +40,15 @@ if __name__ == '__main__':
             env.step()
             roll_cur = env.blue_obs.self_aircraft[0].roll / math.pi * 180
             roll_data.append(roll_cur)
-            fitness += abs(roll_cur - 60) * iteration
+            fitness += abs(roll_cur - roll_target) * iteration
             iteration += 1
         now = datetime.datetime.now()
         milliseconds = now.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
         print("第", index, "局结束时间:", milliseconds)
         print(f"适应度值{fitness}")
+
         with open('./PINN_roll/file/pid_fitness.txt', 'a') as f:
-            f.write(str(pid_params) + str(fitness) + '\n')
+            f.write(str(params) + str(fitness) + '\n')
 
         index = index + 1
     x = [i for i in range(len(roll_data))]

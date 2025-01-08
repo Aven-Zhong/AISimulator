@@ -1,7 +1,5 @@
 import sys
 
-
-
 class PID:
     def __init__(self, m_kp=0, m_ki=0, m_kd=0, m_dt=1):
         self.kp = m_kp
